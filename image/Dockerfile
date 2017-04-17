@@ -1,5 +1,5 @@
 FROM osixia/web-baseimage:1.0.0
-MAINTAINER Bertrand Gouny <bertrand.gouny@osixia.net>
+MAINTAINER Ibrahim Folarin <ifolarin@webbasedsol.com>
 
 # phpLDAPadmin version
 ENV PHPLDAPADMIN_VERSION 1.2.3
@@ -34,6 +34,9 @@ RUN apt-get update \
 
 # Add service directory to /container/service
 ADD service /container/service
+
+# Add custom templates
+ADD templates /var/www/phpldapadmin/templates
 
 # Use baseimage install-service script
 # https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/install-service

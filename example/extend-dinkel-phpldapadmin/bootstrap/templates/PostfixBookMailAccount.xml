@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE template SYSTEM "template.dtd">
+
+<template>
+<askcontainer>1</askcontainer>
+<description>Postfix Book Mail Account</description>
+<icon>mail_account.png</icon>
+<invalid>0</invalid>
+<rdn>uniqueIdentifier</rdn>
+<!--<regexp>^ou=People,o=.*,</regexp>-->
+<title>Postfix Book Mail: Account</title>
+<visible>1</visible>
+
+<objectClasses>
+<objectClass id="inetOrgPerson"></objectClass>
+<objectClass id="person"></objectClass>
+<objectClass id="organizationalPerson"></objectClass>
+<objectClass id="top"></objectClass>
+<objectClass id="PostfixBookMailAccount"></objectClass>
+<objectClass id="extensibleObject"></objectClass>
+</objectClasses>
+
+<attributes>
+<attribute id="givenName">
+	<display>First Name</display>
+	<onchange>=autoFill(cn;%givenName% %sn%)</onchange>
+	<onchange>=autoFill(uniqueIdentifier;%givenName%.%sn%)</onchange>
+	<!-- <onchange>=autoFill(uid;%gidNumber|0-0/T%-%givenName|0-1/l%%sn/l%)</onchange> -->
+	<order>1</order>
+	<page>1</page>
+</attribute>
+<attribute id="sn">
+	<display>Last name</display>
+	<onchange>=autoFill(cn;%givenName% %sn%)</onchange>
+	<onchange>=autoFill(uniqueIdentifier;%givenName%.%sn%)</onchange>
+	<!-- <onchange>=autoFill(uid;%gidNumber|0-0/T%-%givenName|0-1/l%%sn/l%)</onchange> -->
+	<order>2</order>
+	<page>1</page>
+</attribute>
+<attribute id="cn">
+	<display>Common Name</display>
+	<order>3</order>
+	<page>1</page>
+	<spacer>1</spacer>
+</attribute>
+<attribute id="uniqueIdentifier">
+	<display>Unique Identifier</display>
+	<icon>ldap-uid.png</icon>
+	<!--<onchange>=autoFill(homeDirectory;/home/users/%uid%)</onchange>-->
+	<onchange>=autoFill(mailHomeDirectory;/var/mail/example.org/%uniqueIdentifier%/)</onchange>
+	<onchange>=autoFill(mailStorageDirectory;maildir:/var/mail/example.org/%uniqueIdentifier%/MailDir/)</onchange>
+	<order>4</order>
+	<page>1</page>
+</attribute>
+<attribute id="mail">
+	<display>Email</display>
+	<icon>mail.png</icon>
+	<order>5</order>
+	<page>1</page>
+</attribute>
+<attribute id="mailEnabled">
+	<display>Mail Enabled</display>
+	<icon>mail.png</icon>
+	<order>5</order>
+	<page>1</page>
+	<value>true</value>
+</attribute>
+<attribute id="mailAlias">
+	<display>Mail Alias</display>
+	<icon>mail.png</icon>
+	<order>6</order>
+	<page>1</page>
+</attribute>
+<attribute id="mailGroupMember">
+	<display>Mail Group</display>
+	<icon>mail.png</icon>
+	<order>7</order>
+	<page>1</page>
+</attribute>
+<attribute id="mailUidNumber">
+	<hidden>1</hidden>
+	<display>UID Number</display>
+	<icon>terminal.png</icon>
+	<order>8</order>
+	<page>1</page>
+	<readonly>1</readonly>
+	<value>5000</value>
+</attribute>
+<attribute id="mailGidNumber">
+	<hidden>1</hidden>
+	<display>GID Number</display>
+	<order>9</order>
+	<page>1</page>
+	<spacer>1</spacer>
+	<readonly>1</readonly>
+	<value>5000</value>
+</attribute>
+<attribute id="mailHomeDirectory">
+	<display>Home Directory</display>
+	<order>9</order>
+	<page>1</page>
+	<readonly>1</readonly>
+</attribute>
+<attribute id="mailStorageDirectory">
+	<display>Mail Storage</display>
+	<order>10</order>
+	<page>1</page>
+	<readonly>11</readonly>
+</attribute>
+<attribute id="mailQuota">
+	<hidden>1</hidden>
+	<display>Mail Quota</display>
+	<order>12</order>
+	<page>1</page>
+	<value>1048576</value>
+</attribute>
+<attribute id="userPassword">
+	<display>Password</display>
+	<icon>lock.png</icon>
+	<order>13</order>
+	<page>1</page>
+	<post>=php.PasswordEncrypt(%enc%;%userPassword%)</post>
+	<verify>1</verify>
+</attribute>
+</attributes>
+
+</template>
