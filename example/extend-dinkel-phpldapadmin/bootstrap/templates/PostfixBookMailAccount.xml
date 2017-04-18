@@ -24,7 +24,7 @@
 <attribute id="givenName">
 	<display>First Name</display>
 	<onchange>=autoFill(cn;%givenName% %sn%)</onchange>
-	<onchange>=autoFill(uniqueIdentifier;%givenName%.%sn%)</onchange>
+	<onchange>=autoFill(uniqueIdentifier;%givenName/l%.%sn/l%)</onchange>
 	<!-- <onchange>=autoFill(uid;%gidNumber|0-0/T%-%givenName|0-1/l%%sn/l%)</onchange> -->
 	<order>1</order>
 	<page>1</page>
@@ -32,7 +32,7 @@
 <attribute id="sn">
 	<display>Last name</display>
 	<onchange>=autoFill(cn;%givenName% %sn%)</onchange>
-	<onchange>=autoFill(uniqueIdentifier;%givenName%.%sn%)</onchange>
+	<onchange>=autoFill(uniqueIdentifier;%givenName/l%.%sn/l%)</onchange>
 	<!-- <onchange>=autoFill(uid;%gidNumber|0-0/T%-%givenName|0-1/l%%sn/l%)</onchange> -->
 	<order>2</order>
 	<page>1</page>
@@ -47,8 +47,8 @@
 	<display>Unique Identifier</display>
 	<icon>ldap-uid.png</icon>
 	<!--<onchange>=autoFill(homeDirectory;/home/users/%uid%)</onchange>-->
-	<onchange>=autoFill(mailHomeDirectory;/var/mail/%uniqueIdentifier%/)</onchange>
-	<onchange>=autoFill(mailStorageDirectory;maildir:/var/mail/%uniqueIdentifier%/MailDir/)</onchange>
+	<onchange>=autoFill(mailHomeDirectory;/var/mail/%uniqueIdentifier/l%/)</onchange>
+	<onchange>=autoFill(mailStorageDirectory;maildir:/var/mail/%uniqueIdentifier/l%/MailDir/)</onchange>
 	<order>4</order>
 	<page>1</page>
 </attribute>
