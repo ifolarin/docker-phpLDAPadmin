@@ -47,8 +47,8 @@
 	<display>Unique Identifier</display>
 	<icon>ldap-uid.png</icon>
 	<!--<onchange>=autoFill(homeDirectory;/home/users/%uid%)</onchange>-->
-	<onchange>=autoFill(mailHomeDirectory;/var/mail/example.org/%uniqueIdentifier%/)</onchange>
-	<onchange>=autoFill(mailStorageDirectory;maildir:/var/mail/example.org/%uniqueIdentifier%/MailDir/)</onchange>
+	<onchange>=autoFill(mailHomeDirectory;/var/mail/%uniqueIdentifier%/)</onchange>
+	<onchange>=autoFill(mailStorageDirectory;maildir:/var/mail/%uniqueIdentifier%/MailDir/)</onchange>
 	<order>4</order>
 	<page>1</page>
 </attribute>
