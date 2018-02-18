@@ -1,5 +1,5 @@
 NAME = webbasedsol/phpldapadmin
-VERSION = 0.1.0
+VERSION = 0.1.3
 
 .PHONY: all build build-nocache test tag_latest release
 
