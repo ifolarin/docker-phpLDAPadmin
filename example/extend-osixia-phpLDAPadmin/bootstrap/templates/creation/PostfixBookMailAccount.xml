@@ -43,7 +43,7 @@
 	<page>1</page>
 	<spacer>1</spacer>
 </attribute>
-<attribute id="uniqueIdentifier">
+<attribute id="uniqueidentifier">
 	<display>Unique Identifier</display>
 	<icon>ldap-uid.png</icon>
 	<!--<onchange>=autoFill(homeDirectory;/home/users/%uid%)</onchange>-->
