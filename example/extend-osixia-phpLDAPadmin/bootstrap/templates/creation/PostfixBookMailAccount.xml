@@ -6,7 +6,7 @@
 <description>Postfix Book Mail Account</description>
 <icon>mail_account.png</icon>
 <invalid>0</invalid>
-<rdn>uniqueIdentifier</rdn>
+<rdn>uniqueidentifier</rdn>
 <!--<regexp>^ou=People,o=.*,</regexp>-->
 <title>Postfix Book Mail: Account</title>
 <visible>1</visible>
